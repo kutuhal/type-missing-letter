@@ -1,0 +1,75 @@
+<html> <head>
+<title>Missing Characters</title>
+
+<script type='text/javascript'>
+
+function identifyKey (oEvent) {
+	var keyCode = oEvent.keyCode;
+	var charCode = oEvent.charCode;
+	console.log ('Key Code: '+ keyCode +'& Character Code: '+ charCode);
+	console.log (String.fromCharCode(keyCode));
+	return  (String.fromCharCode(keyCode));
+}
+
+function getWord (){
+	document.getElementById('word').innerHTML = 'pl_y';
+}
+
+function updateWord (oEvent){
+	var wordElement = document.getElementById('word');
+	var letter = identifyKey (oEvent);
+	if (letter == 'a' ) {
+		document.getElementById('word').innerHTML = 'play';
+	} else {
+		document.getElementById('message').innerHTML = 'Sorry! Wrong letter. Try again!!';
+	}
+}
+
+</script>
+<style type='text/css'>
+
+ #container {
+	background:
+	radial-gradient(black 15%, transparent 16%) 0 0,
+	radial-gradient(black 15%, transparent 16%) 8px 8px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+	radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+	background-color:#282828;
+	background-size:16px 16px;
+	color: white;
+	margin: auto;
+	width: 50%;
+	height: 80%;
+	position: relative;
+}
+ #instruction{
+ 	margin:auto;
+ 	height: 50%;
+ }
+#div1 {
+	background-color: red; height: 100px;
+	width: 100px; position: absolute;
+} 
+#word {
+	font-size: x-large;
+	margin: auto;
+	color: red;
+	width: 50px;
+
+}
+
+</style>
+</head> 
+<body onkeypress='updateWord(event)' onload="getWord();">
+<div id = 'container' > 
+<p id ='instruction'>Start typing missing characters</p>
+
+<div id ='word'> //this div is populated when the page loads using getWord function
+</div>
+<div id ='message'>  !-this div is populated when incorrect word is typed
+</div>
+
+</div>
+</body>
+
+</html>
